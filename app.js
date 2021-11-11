@@ -6,7 +6,6 @@ import {
 //Makes data availible
 async function releaseMemes() {
   const data = await fetchApi("https://api.imgflip.com/get_memes")
-  console.log(data.data.memes.length)
   for (let i = 0; i < data.data.memes.length; i++) {
 
     const wrap = document.createElement('div')
@@ -15,8 +14,7 @@ async function releaseMemes() {
     img.src = data.data.memes[i].url
     title.innerHTML = data.data.memes[i].name
     wrap.append(img, title)
-    document.body.append(wrap)
-
+    main.append(wrap)
   }
 }
 releaseMemes()
